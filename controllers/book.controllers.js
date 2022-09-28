@@ -66,13 +66,13 @@ bookCtrl.deleteBook = async (req, res) => {
 //Axios consult best books of a year
 bookCtrl.axiosConsult = async (req, res) => {
     try {
-        const response = await axios.get('https://openlibrary.org/subjects/'+req.params.subject+'.json',
+        const resp = await axios.get('https://openlibrary.org/subjects/'+req.params.subject+'.json',
         {
             timeout: 1000
         });
         res.json({
-            status: response.status,
-            data: response.data,
+            status: resp.status,
+            data: resp.data,
         })
     } catch (err) {
         res.json({ status: err.response.status, data: err.response.data });
